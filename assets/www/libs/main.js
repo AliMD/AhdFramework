@@ -6,7 +6,10 @@
  * Ahd Mobile WebApp Framework
  *
  */
- 
-document.addEventListener("deviceready", function () {
-  navigator.notification.alert('Ahd2a v2 !');
-}, false);
+
+_(function(){
+	_('h1').tap(function(){
+		_.alert('hi');
+	});
+	
+});
