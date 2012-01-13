@@ -111,7 +111,7 @@ var Zepto = (function() {
     dom.selector = selector || '';
     return dom;
   }
-
+ 
   function $(selector, context){
     if (!selector) return Z();
     if (context !== undefined) return $(context).find(selector);
@@ -215,7 +215,8 @@ var Zepto = (function() {
       });
     },
     each: function(callback){
-      this.forEach(function(el, idx){ callback.call(el, idx, el) });      return this;
+      this.forEach(function(el, idx){ callback.call(el, idx, el) });
+      return this;
     },
     filter: function(selector){
       return $([].filter.call(this, function(element){
@@ -379,7 +380,7 @@ var Zepto = (function() {
       };
     },
     css: function(property, value){
-      if (value === undefined && typeof property == 'string') {
+      if (value === undefined && typeof property == 'string') { // not work !!!
         return(
           this.length == 0
             ? undefined
@@ -1339,7 +1340,7 @@ window.Zepto = Zepto;
     else if (this.length) {
       var event = $.Event('submit');
       this.eq(0).trigger(event);
-      if (!event.defaultPrevented) this.get(0).submit()
+      if (!event.defaultPrevented) this.get(0).submit();
     }
     return this;
   }
@@ -1398,13 +1399,12 @@ window.Zepto = Zepto;
       } else if ('last' in touch) {
         touchTimeout = setTimeout(function(){
           touchTimeout = null;
-          $(touch.target).trigger('tap')
+          $(touch.target).trigger('tap');
           touch = {};
         }, 250);
       }
     }).bind('touchcancel', function(){ touch = {} });
   });
-
   ['swipe', 'swipeLeft', 'swipeRight', 'swipeUp', 'swipeDown', 'doubleTap', 'tap', 'longTap'].forEach(function(m){
     $.fn[m] = function(callback){ return this.bind(m, callback) }
   });

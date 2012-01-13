@@ -8,8 +8,9 @@
  */
 
 _(function(){
-	_('h1').tap(function(){
-		_.alert('hi');
+	_.alert('Powered By _1js',null,'Hi');
+	_('h1,p').tap(function(){
+		_(this).css({color:'red'});
 	});
 	
 });
