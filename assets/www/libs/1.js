@@ -8,7 +8,7 @@
  */
 
 (function(_root){_root._1js=(function(z){
-	var i,undef,__,doc=_root.document,phgap=false;
+	var i,undef,__,doc=_root.document,logAlert=false;phgap=false;
 	if(typeof _root.PhoneGap !== "undefined"){
 		for(i in $.os){
 			phgap=true;
@@ -16,7 +16,7 @@
 		};
 	}_.phgap=phgap;
 
-	function log (msg){ (!!_root['console'] || alert(msg)) && console.log(msg); }_.log=log;
+	function log (msg){ (!!_root['console'] || (logAlert && alert(msg))) && console.log(msg); }_.log=log;
 	if(z==undef){log('Add Zepto.js befor 1.js'); return false;}
 	
 	function _(s, c){
@@ -56,3 +56,6 @@
     	_.fn[m] = function(callback){ return this.bind(_.phgap?m:'click', callback) }
   	});
 })(_1js);
+
+//core init
+_(function(){ _.log("Ahd Mobile WebApp Framework v1 started"+(_.phgap?" in phonegap.":".")); });

@@ -8,14 +8,10 @@
  */
 
 _(function(){
-	
 	// Go go go ! -mage paintbale
-	$('.beforload').removeClass('beforload');
-	
+	_('.beforload').removeClass('beforload');
+	_.phgap || _('.container').addClass('pc');
 	// TODO: btns events ...
-	
-	_.log(_.phgap);
-	_.alert(1,null,2);
 	
 	
 });
