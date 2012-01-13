@@ -1,5 +1,5 @@
 /*
- * <1Devs dot="com" department="Mobile" alt="www.1mobs.com" />
+ * <1Devs dot="com" department="Mobile" />
  *
  * 1Mobs.com - 1Devs Mobile Department.
  *
@@ -8,38 +8,43 @@
  */
 
 (function(_root){_root._1js=(function(z){
-	var i,undef,__,doc=_root.document;
-	_.phgap=typeof _root.PhoneGap !== "undefined";
+	var i,undef,__,doc=_root.document,logAlert=false;phgap=false;
+	if(typeof _root.PhoneGap !== "undefined"){
+		for(i in $.os){
+			phgap=true;
+			break;
+		};
+	}_.phgap=phgap;
 
-	function log (msg){ ( _root['console'] || alert(msg) ) && console.log(msg); }
+	function log (msg){ (!!_root['console'] || (logAlert && alert(msg))) && console.log(msg); }_.log=log;
 	if(z==undef){log('Add Zepto.js befor 1.js'); return false;}
 	
 	function _(s, c){
-		s2 = (_.phgap && _.isFunction(s))?function(){_.deviceready(s)}:s;
+		s2 = (phgap && _.isFunction(s))?function(){deviceready(s)}:s;
 		return z(s2, c);
 	}
 	
 	for(i in z){_[i]=z[i];}
 	
 	_.alert=function(msg,callBack,title,btnName){
-		if(_.phgap){
-			_root.navigator.notification.alert(msg, callBack, title, btnName)
-		}else{
-			_root.alert(msg);
-		}
+		(phgap || _root.alert(msg)) && _root.navigator.notification.alert(msg, callBack, title, btnName);
+		return this;
 	}
-	
-	_.log=log;
 	
 	_.fn.addEvt=function(evt,fn){
 		doc.addEventListener(evt,fn,false);
-	};
-	
-	_.deviceready=function(fn){
-		return _(doc).addEvt("deviceready",fn);
+		return this;
 	}
 	
-	// other phgp event
+	deviceready=function(fn){
+		return _(doc).addEvt("deviceready",fn);
+	};_.deviceready=deviceready;
+	
+	// TODO: add other phgp event like _.deviceready;
+	
+	function delay(fn,dly){setTimeout(fn,dly);return this;}_.delay=delay;
+	
+	
 	
 	
   
@@ -51,3 +56,6 @@
     	_.fn[m] = function(callback){ return this.bind(_.phgap?m:'click', callback) }
   	});
 })(_1js);
+
+//core init
+_(function(){ _.log("Ahd Mobile WebApp Framework v1 started"+(_.phgap?" in phonegap.":".")); });
