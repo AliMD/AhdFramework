@@ -1,5 +1,5 @@
 /*
- * <1Devs dot="com" department="Mobile" />
+ * <1Devs dot="com" department="Mobile" alt="www.1mobs.com" />
  *
  * 1Mobs.com - 1Devs Mobile Department.
  *
@@ -8,14 +8,14 @@
  */
 
 _(function(){
-	
-	// Go go go ! -mage paintbale
-	$('.beforload').removeClass('beforload');
-	
-	// TODO: btns events ...
-	
-	_.log(_.phgap);
-	_.alert(1,null,2);
-	
+	_('h1').tap(function(){
+		_.alert('Powered By _1js',null,'Hi');
+	});
+	_('h2').tap(function(){
+		_.log('Powered By _1js');
+	});
+	_('body>*').tap(function(){
+		_(this).css({color:'red'});
+	});
 	
 });

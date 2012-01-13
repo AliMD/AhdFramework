@@ -1,5 +1,5 @@
 /*
- * <1Devs dot="com" department="Mobile" />
+ * <1Devs dot="com" department="Mobile" alt="www.1mobs.com" />
  *
  * 1Mobs.com - 1Devs Mobile Department.
  *
@@ -11,11 +11,11 @@
 	var i,undef,__,doc=_root.document;
 	_.phgap=typeof _root.PhoneGap !== "undefined";
 
-	function log (msg){ ( _root['console'] || alert(msg) ) && console.log(msg); }_.log=log;
+	function log (msg){ ( _root['console'] || alert(msg) ) && console.log(msg); }
 	if(z==undef){log('Add Zepto.js befor 1.js'); return false;}
 	
 	function _(s, c){
-		s2 = (_.phgap && _.isFunction(s))?function(){deviceready(s)}:s;
+		s2 = (_.phgap && _.isFunction(s))?function(){_.deviceready(s)}:s;
 		return z(s2, c);
 	}
 	
@@ -23,25 +23,23 @@
 	
 	_.alert=function(msg,callBack,title,btnName){
 		if(_.phgap){
-			_root.navigator.notification.alert(msg, callBack, title, btnName);
+			_root.navigator.notification.alert(msg, callBack, title, btnName)
 		}else{
 			_root.alert(msg);
 		}
 	}
 	
+	_.log=log;
+	
 	_.fn.addEvt=function(evt,fn){
 		doc.addEventListener(evt,fn,false);
+	};
+	
+	_.deviceready=function(fn){
+		return _(doc).addEvt("deviceready",fn);
 	}
 	
-	deviceready=function(fn){
-		return _(doc).addEvt("deviceready",fn);
-	};_.deviceready=deviceready;
-	
-	// TODO: add other phgp event like _.deviceready;
-	
-	function delay(fn,dly){setTimeout(fn,dly);}_.delay=delay;
-	
-	
+	// other phgp event
 	
 	
   
