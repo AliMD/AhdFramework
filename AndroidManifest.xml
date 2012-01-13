@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.onemobs.ahd2a"
     android:versionCode="2"
-    android:versionName="2.0" >
+    android:versionName="2.0"
+    android:installLocation="auto" >
     
     <supports-screens
 		android:largeScreens="true"
@@ -28,7 +29,7 @@
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
-    <uses-sdk android:minSdkVersion="7" />
+    <uses-sdk android:minSdkVersion="8" />
 
     <application
         android:icon="@drawable/ic_launcher"
