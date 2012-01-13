@@ -8,29 +8,32 @@
  */
 
 (function(_root){_root._1js=(function(z){
-	var i,undef,__,doc=_root.document;
-	_.phgap=typeof _root.PhoneGap !== "undefined";
+	var i,undef,__,doc=_root.document,phgap=false;
+	if(typeof _root.PhoneGap !== "undefined"){
+		for(i in $.os){
+			phgap=true;
+			break;
+		};
+	}_.phgap=phgap;
 
-	function log (msg){ ( _root['console'] || alert(msg) ) && console.log(msg); }_.log=log;
+	function log (msg){ (!!_root['console'] || alert(msg)) && console.log(msg); }_.log=log;
 	if(z==undef){log('Add Zepto.js befor 1.js'); return false;}
 	
 	function _(s, c){
-		s2 = (_.phgap && _.isFunction(s))?function(){deviceready(s)}:s;
+		s2 = (phgap && _.isFunction(s))?function(){deviceready(s)}:s;
 		return z(s2, c);
 	}
 	
 	for(i in z){_[i]=z[i];}
 	
 	_.alert=function(msg,callBack,title,btnName){
-		if(_.phgap){
-			_root.navigator.notification.alert(msg, callBack, title, btnName);
-		}else{
-			_root.alert(msg);
-		}
+		(phgap || _root.alert(msg)) && _root.navigator.notification.alert(msg, callBack, title, btnName);
+		return this;
 	}
 	
 	_.fn.addEvt=function(evt,fn){
 		doc.addEventListener(evt,fn,false);
+		return this;
 	}
 	
 	deviceready=function(fn){
@@ -39,7 +42,7 @@
 	
 	// TODO: add other phgp event like _.deviceready;
 	
-	function delay(fn,dly){setTimeout(fn,dly);}_.delay=delay;
+	function delay(fn,dly){setTimeout(fn,dly);return this;}_.delay=delay;
 	
 	
 	
