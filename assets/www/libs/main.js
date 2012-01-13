@@ -8,8 +8,13 @@
  */
 
 _(function(){
-	_.alert('Powered By _1js',null,'Hi');
-	_('h1,p').tap(function(){
+	_('h1').tap(function(){
+		_.alert('Powered By _1js',null,'Hi');
+	});
+	_('h2').tap(function(){
+		_.log('Powered By _1js');
+	});
+	_('body>*').tap(function(){
 		_(this).css({color:'red'});
 	});
 	

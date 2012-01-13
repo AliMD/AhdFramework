@@ -29,6 +29,8 @@
 		}
 	}
 	
+	_.log=log;
+	
 	_.fn.addEvt=function(evt,fn){
 		doc.addEventListener(evt,fn,false);
 	};
