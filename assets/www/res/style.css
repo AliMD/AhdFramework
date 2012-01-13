@@ -1,0 +1,73 @@
+/*
+ * <1Devs dot="com" department="Mobile" />
+ *
+ * 1Mobs.com - 1Devs Mobile Department.
+ *
+ * Ahd Mobile WebApp Framework
+ *
+ */
+ 
+@charset "UTF-8";
+
+* {
+	padding:0;
+	margin:0;
+	-webkit-transition:all 500ms;
+}
+
+html,
+body,
+div.container {
+	width:auto;
+	min-height:100%; /* bug ! */
+}
+
+body {
+	background-color:#eee9d3;
+}
+
+div.container {
+	background-color:rgba(0,0,0,0.3);
+}
+
+div.beforload div.fixheader{
+	top:-100%;
+	opacity:0;
+}
+div.beforload div.fixfooter{
+	bottom:-100%;
+	opacity:0;
+}
+
+div.fixheader,
+div.fixfooter {
+	position:fixed;
+	left:0;
+	right:0;
+	overflow:hidden;
+	/*background-size:100% 100%;*/
+	background-repeat:no-repeat;
+	background-position:left top;
+	opacity:0.9;
+}
+
+div.fixheader {
+	top:0;
+ 	height:48px;
+	background-image:url('header.jpg');
+	
+}
+
+div.fixfooter {
+	bottom:0;
+ 	height:56px;
+	background-image:url('footer.jpg');
+}
+
+div.beforload div.content{
+	-webkit-transform:scale(0,0);
+	opacity:0;
+}
+div.content{
+	margin:48px 0 56px 0;
+}
