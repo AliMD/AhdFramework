@@ -11,6 +11,6 @@ public class Ahd2a extends DroidGap {
         super.setIntegerProperty("splashscreen", R.drawable.splash);
         
         String baseUrl = "file:///android_asset/www/";
-        super.loadUrl(baseUrl+"index.html",300);
+        super.loadUrl(baseUrl+"init.html",300);
     }
 }
