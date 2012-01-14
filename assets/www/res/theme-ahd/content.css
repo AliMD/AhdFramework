@@ -11,7 +11,7 @@
 
 /* content ---- */
 div.content *:lang(ar) {
-	font-family:'Arabic Typesetting';
+	font-family:'Quran Taha';
 }
 
 div.content ul {
@@ -47,6 +47,7 @@ div.content li li:lang(ar) {
 div.content li li:lang(fa) {
 	font-size: 24px;
 	margin-bottom: 25px;
+	color:red;
 }
 
 div.content li:first-child li:lang(ar){
