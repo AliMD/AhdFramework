@@ -86,11 +86,11 @@ div.fixfooter {
 }
 
 div.beforload div.content {
-	-webkit-transform:scale(0, 0);
+	-webkit-transform:scale(0.5, 0.5);
 	opacity:0;
 }
 
 div.content {
 	margin:55px 0 55px 0;
-	-webkit-transition-duration:1500ms;
+	-webkit-transition-duration:1400ms;
 }
