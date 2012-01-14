@@ -1,0 +1,52 @@
+/*
+ * <1Devs dot="com" department="Mobile" />
+ *
+ * 1Mobs.com - 1Devs Mobile Department.
+ *
+ * Ahd Mobile WebApp Template
+ *
+ */
+
+@charset "UTF-8";
+
+/* global section ---- */
+* {
+	-webkit-transition:all 700ms ease-in-out;
+}
+
+body {
+	background-color:#eee9d3;
+}
+
+.preload div.fixheader {
+	top:-100%;
+	opacity:0;
+}
+
+.preload div.fixfooter {
+	bottom:-100%;
+	opacity:0;
+}
+
+div.fixheader {
+	height:55px;
+	opacity:0.95;
+	background-image:url('header.jpg');
+}
+
+div.fixfooter {
+	height:55px;
+	opacity:0.9;
+	background-image:url('footer.jpg');
+}
+
+.preload div.content {
+	-webkit-transform:scale(0.5, 0.5);
+	opacity:0;
+}
+
+div.content {
+	margin:55px 0 55px 0;
+	-webkit-transition-duration:1400ms;
+}
+/* ---- global section */

@@ -3,28 +3,32 @@
  *
  * 1Mobs.com - 1Devs Mobile Department.
  *
- * Ahd Mobile WebApp Framework
+ * Ahd Mobile WebApp Master Layout
  *
  */
-
+ 
 @charset "UTF-8";
 
+/* global resset ---- */
 * {
 	padding:0;
 	margin:0;
-	-webkit-transition:all 700ms ease-in-out;
 }
 
 html,
 body,
 div.container {
-	width:auto;
+	width:auto;/* min-height:100%; */
+	/* i thing we have bug in height */
 }
 
 body {
-	background-color:#eee9d3;
+	height:auto;
 }
 
+/* ---- global resset */
+
+/* pc view ---- */
 div.container.pc {
 	position:absolute;
 	width:320px;
@@ -44,16 +48,9 @@ div.container.pc > div.sim {
 	-webkit-box-shadow:0px 0px 25px 5px black;
 }
 
-div.beforload div.fixheader {
-	top:-100%;
-	opacity:0;
-}
+/* ---- pc view  */
 
-div.beforload div.fixfooter {
-	bottom:-100%;
-	opacity:0;
-}
-
+/* fixed headers ---- */
 div.fixheader,
 div.fixfooter {
 	position:fixed;
@@ -73,24 +70,9 @@ div.pc div.fixfooter {
 
 div.fixheader {
 	top:0;
-	height:55px;
-	opacity:0.95;
-	background-image:url('header.jpg');
 }
 
 div.fixfooter {
 	bottom:0;
-	height:55px;
-	opacity:0.9;
-	background-image:url('footer.jpg');
 }
-
-div.beforload div.content {
-	-webkit-transform:scale(0.5, 0.5);
-	opacity:0;
-}
-
-div.content {
-	margin:55px 0 55px 0;
-	-webkit-transition-duration:1400ms;
-}
+/* ---- fixed headers */
