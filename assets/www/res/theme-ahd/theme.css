@@ -14,25 +14,19 @@
 	-webkit-transition:all 700ms ease-in-out;
 }
 
+body.preload {
+	opacity:0;
+}
+
 body {
 	background-color:black;
 }
 
 .preload div.container {
-	-webkit-transform:scale(0, 0);
-	-webkit-transition-duration:1200;
 }
 
 div.container {
 	direction:rtl;
-}
-
-.preload div.fixheader {
-	opacity:0;
-}
-
-.preload div.fixfooter {
-	opacity:0;
 }
 
 div.fixheader {
