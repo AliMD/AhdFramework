@@ -18,8 +18,13 @@
 html,
 body,
 div.container {
-	width:auto;/* min-height:100%; */
-	/* i thing we have bug in height */
+	
+}
+div.container {
+	min-height:800px;
+	width:auto;
+	max-width:480px; /* hala oomadimo ye device ahmagh meta viewpor ro support nakard */
+	margin:0 auto;
 }
 
 body {
@@ -33,6 +38,7 @@ div.container.pc {
 	position:absolute;
 	width:320px;
 	height:480px;
+	min-height:inherit;
 	left:0;
 	top:0;
 	right:0;

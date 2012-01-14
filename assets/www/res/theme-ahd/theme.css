@@ -13,8 +13,10 @@
 * {
 	-webkit-transition:all 700ms ease-in-out;
 }
-
-body {
+body{
+	background-color:black;
+}
+div.container {
 	background-color:#eee9d3;
 }
 
@@ -29,24 +31,27 @@ body {
 }
 
 div.fixheader {
-	height:55px;
+	height:50px;
 	opacity:0.95;
-	background-image:url('header.jpg');
+	background-image:url('images/header.png');
 }
 
 div.fixfooter {
-	height:55px;
+	height:50px;
 	opacity:0.9;
-	background-image:url('footer.jpg');
+	background-image:url('images/footer.png');
 }
+/* ---- global section */
 
+/* content ---- */
 .preload div.content {
 	-webkit-transform:scale(0.5, 0.5);
 	opacity:0;
 }
 
 div.content {
-	margin:55px 0 55px 0;
+	padding:50px 0 50px 0;
 	-webkit-transition-duration:1400ms;
+	display:none;
 }
-/* ---- global section */
+/* ---- content */

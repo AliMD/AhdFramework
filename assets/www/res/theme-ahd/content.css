@@ -3,9 +3,12 @@
  *
  * 1Mobs.com - 1Devs Mobile Department.
  *
- * Ahd Mobile WebApp Framework
+ * Ahd Mobile WebApp Content Style
  *
  */
 
 @charset "UTF-8";
 
+div.content *:lang(ar){
+	font-family:'Arabic Typesetting';
+}
