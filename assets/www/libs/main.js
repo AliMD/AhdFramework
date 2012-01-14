@@ -10,7 +10,9 @@
 _(function(){
 	_.phgap || _('.container').addClass('pc');
 	_('.preload').removeClass('preload');
-	
+	if(window.innerWidth!=480){
+		alert("width : "+window.innerWidth);
+	}
 	
 	// TODO: btns events ...
 	

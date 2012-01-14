@@ -36,7 +36,7 @@ div.content > ul > li {
 
 div.content li li {
 	text-align:center;
-	text-shadow:1px 1px 5px white;
+	text-shadow:1px 1px 5px #eea;
 }
 
 div.content li li:lang(ar) {
@@ -47,7 +47,6 @@ div.content li li:lang(ar) {
 div.content li li:lang(fa) {
 	font-size: 24px;
 	margin-bottom: 25px;
-	color:red;
 }
 
 div.content li:first-child li:lang(ar){
