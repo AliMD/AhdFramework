@@ -19,7 +19,7 @@ div.content ul {
 }
 
 div.content > ul {
-	
+	margin-top:35px;
 }
 
 div.content li ul {
@@ -27,7 +27,7 @@ div.content li ul {
 }
 
 div.content li {
-	
+	color:#321;
 }
 
 div.content > ul > li {
@@ -35,6 +35,24 @@ div.content > ul > li {
 }
 
 div.content li li {
-	
+	text-align:center;
+	text-shadow:1px 1px 5px white;
+}
+
+div.content li li:lang(ar) {
+	font-size:48px;
+	line-height: 80%;
+}
+
+div.content li li:lang(fa) {
+	font-size: 24px;
+	margin-bottom: 25px;
+}
+
+div.content li:first-child li:lang(ar){
+	font-size:52px;
+}
+div.content li:first-child li:lang(fa){
+	padding-bottom:12px;
 }
 /* ---- content */
