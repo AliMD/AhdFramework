@@ -10,15 +10,15 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: 'Arabic Typesetting';
-  font-style: normal;
-  font-weight: 400;
-  src: url('arabic-typesetting.ttf') format('truetype');
+	font-family: 'Arabic Typesetting';
+	font-style: normal;
+	font-weight: 400;
+	src: url('arabic-typesetting.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Quran Taha';
-  font-style: normal;
-  font-weight: 400;
-  src: url('arabic-typesetting.ttf') format('truetype');
+	font-family: 'Quran Taha';
+	font-style: normal;
+	font-weight: 400;
+	src: url('arabic-typesetting.ttf') format('truetype');
 }

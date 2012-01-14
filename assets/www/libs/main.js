@@ -8,8 +8,9 @@
  */
 
 _(function(){
-	_('.preload').removeClass('preload');
 	_.phgap || _('.container').addClass('pc');
+	_('.preload').removeClass('preload');
+	
 	
 	// TODO: btns events ...
 	

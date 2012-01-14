@@ -9,6 +9,32 @@
 
 @charset "UTF-8";
 
-div.content *:lang(ar){
+/* content ---- */
+div.content *:lang(ar) {
 	font-family:'Arabic Typesetting';
 }
+
+div.content ul {
+	list-style-type:none;
+}
+
+div.content > ul {
+	
+}
+
+div.content li ul {
+	
+}
+
+div.content li {
+	
+}
+
+div.content > ul > li {
+	
+}
+
+div.content li li {
+	
+}
+/* ---- content */
