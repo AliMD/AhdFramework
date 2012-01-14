@@ -14,19 +14,27 @@
 	-webkit-transition:all 700ms ease-in-out;
 }
 
-body.preload {
-	opacity:0;
-}
-
 body {
 	background-color:black;
 }
 
 .preload div.container {
+	opacity:0.3;
+	-webkit-transform:scale(0, 0); /* Dont remove this fucked ruls */
 }
 
 div.container {
 	direction:rtl;
+}
+
+.preload div.fixheader {
+	top:-90%;
+	opacity:0.3;
+}
+
+.preload div.fixfooter {
+	bottom:-90%;
+	opacity:00.3;
 }
 
 div.fixheader {
