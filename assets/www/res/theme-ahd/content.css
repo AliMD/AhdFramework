@@ -10,8 +10,9 @@
 @charset "UTF-8";
 
 /* content ---- */
-div.content *:lang(ar) {
-	font-family:'Quran Taha';
+div.content *:lang(ar),
+div.content *:lang(fa) {
+	font-family:'ArabicTypesettingRegular';
 }
 
 div.content ul {
@@ -37,22 +38,23 @@ div.content > ul > li {
 div.content li li {
 	text-align:center;
 	text-shadow:1px 1px 5px #eea;
+	line-height: 150%;
 }
 
 div.content li li:lang(ar) {
-	font-size:48px;
-	line-height: 80%;
+	font-size:30px;
 }
 
 div.content li li:lang(fa) {
-	font-size: 24px;
+	font-size: 22px;
 	margin-bottom: 25px;
 }
 
 div.content li:first-child li:lang(ar){
-	font-size:52px;
+	font-size:32px;
 }
 div.content li:first-child li:lang(fa){
+	font-size: 25px;
 	padding-bottom:12px;
 }
 /* ---- content */
