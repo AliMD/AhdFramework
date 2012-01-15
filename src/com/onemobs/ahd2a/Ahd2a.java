@@ -25,9 +25,6 @@ public class Ahd2a extends DroidGap {
         this.appView.getSettings().setSupportZoom(false); 
         this.appView.getSettings().setUseWideViewPort(true);
         this.appView.getSettings().setLoadWithOverviewMode(true);
-
-        
-        
         
     }
 }
