@@ -67,7 +67,9 @@ div.fixheader,
 div.fixfooter {
 	position:fixed;
 	left:0;
+	right:0;
 	width:480px;
+	margin:0 auto;
 	overflow:hidden;
 	z-index:2;
 }

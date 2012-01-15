@@ -2,10 +2,45 @@ package com.onemobs.ahd2a;
 
 import android.os.Bundle;
 import com.phonegap.*;
+import android.webkit.WebSettings;
 import android.webkit.WebSettings.RenderPriority;
+import android.webkit.WebView;
+import android.view.Display;
+import android.view.WindowManager;
+import android.content.Context;
+import android.util.Log;
+
 
 public class Ahd2a extends DroidGap {
-    /** Called when the activity is first created. */
+	
+	public void fixZoom(WebView appView, float appWidth){
+		WebSettings appViewSett = appView.getSettings();
+		
+		appView.setBackgroundColor(0x000000);
+        appView.setHorizontalScrollBarEnabled(false);
+        appView.setHorizontalScrollbarOverlay(false);
+        appView.setVerticalScrollBarEnabled(false);
+        appView.setVerticalScrollbarOverlay(false);
+        
+        appViewSett.setRenderPriority( RenderPriority.HIGH );
+        appViewSett.setBuiltInZoomControls(false);
+        appViewSett.setSupportZoom(false);
+        appViewSett.setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        appViewSett.setUseWideViewPort(true);
+        appViewSett.setLoadWithOverviewMode(true);
+        
+        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        float width = display.getWidth();
+        double scale = Math.ceil( ( width / appWidth ) * 100 );
+        
+        Log.v( "app width", " = " + appWidth );
+        Log.v( "display width", " = " + width );
+        Log.v( "current scale()", " = " + appView.getScale() );
+        Log.v( "scale", " = " + scale );
+        
+        appView.setInitialScale( (int)scale );
+	}
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,17 +49,8 @@ public class Ahd2a extends DroidGap {
         String baseUrl = "file:///android_asset/www/";
         super.loadUrl(baseUrl+"init.html",300);
         
-        this.appView.setBackgroundColor(0x000000);
-        this.appView.setHorizontalScrollBarEnabled(false);
-        this.appView.setHorizontalScrollbarOverlay(false);
-        this.appView.setVerticalScrollBarEnabled(false);
-        this.appView.setVerticalScrollbarOverlay(false);
-        
-        this.appView.getSettings().setRenderPriority( RenderPriority.HIGH );
-        this.appView.getSettings().setBuiltInZoomControls(false); 
-        this.appView.getSettings().setSupportZoom(false); 
-        this.appView.getSettings().setUseWideViewPort(true);
-        this.appView.getSettings().setLoadWithOverviewMode(true);
+        fixZoom(this.appView, 480);
         
     }
+    
 }
