@@ -8,7 +8,8 @@ import android.webkit.WebView;
 import android.view.Display;
 import android.view.WindowManager;
 import android.content.Context;
-import android.util.Log;
+//import android.util.Log;
+import android.content.res.Configuration;
 
 
 public class Ahd2a extends DroidGap {
@@ -32,13 +33,13 @@ public class Ahd2a extends DroidGap {
         Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         float width = display.getWidth();
         double scale = Math.ceil( ( width / appWidth ) * 100 );
-        
+        /*
         Log.v( "app width", " = " + appWidth );
         Log.v( "display width", " = " + width );
         Log.v( "current scale()", " = " + appView.getScale() );
         Log.v( "scale", " = " + scale );
-        
-        appView.setInitialScale( (int)scale );
+        */
+        appView.setInitialScale( (int) scale );
 	}
 	
     @Override
@@ -51,6 +52,15 @@ public class Ahd2a extends DroidGap {
         
         fixZoom(this.appView, 480);
         
+    }
+    
+    @Override
+    public void onConfigurationChanged(Configuration newConfig)
+    {
+        super.onConfigurationChanged(newConfig);
+        //setContentView(R.layout.main);
+
+        fixZoom(this.appView, 480);
     }
     
 }

@@ -55,6 +55,7 @@ div.fixfooter {
 }
 
 div.content {
+	min-height:800px;
 	padding:50px 35px 50px 35px;
 	-webkit-transition-duration:1400ms;
 	background-image:url('images/bg.jpg');

@@ -18,6 +18,7 @@
 html,
 body,
 div.container {
+	
 }
 
 div.container {
@@ -32,7 +33,6 @@ body {
 }
 
 div{
-	background-size:100% 100%;
 	background-repeat:no-repeat;
 	background-position:center center;
 }

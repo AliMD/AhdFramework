@@ -32,16 +32,37 @@
 	}
 	
 	_.fn.addEvt=function(evt,fn){
-		doc.addEventListener(evt,fn,false);
-		return this;
+		return this.each(function(){
+			return this.addEventListener(evt,fn,false);
+		});
 	}
 	
 	deviceready=function(fn){
-		return _(doc).addEvt("deviceready",fn);
-	};_.deviceready=deviceready;
+		return _(doc).addEvt("deviceready",function(){
+			
+			['pause','resume','online','offline',
+			'backbutton','batterycritical','batterylow','batterystatus',
+			'menubutton','searchbutton','startcallbutton','endcallbutton',
+			'volumedownbutton','volumeupbutton'].forEach(function(m){
+				_.fn[m]=function(fn){
+					return this.addEvt(m,fn);
+				}
+			});
+			
+			fn();
+			
+		});
+	};_.deviceready=_.fn.deviceready=deviceready;
 	
-	// TODO: add other phgp event like _.deviceready;
-	
+	/*['deviceready','pause','resume','online','offline',
+	'backbutton','batterycritical','batterylow','batterystatus',
+	'menubutton','searchbutton','startcallbutton','endcallbutton',
+	'volumedownbutton','volumeupbutton'].forEach(function(m){
+		_.fn[m]=function(fn){
+			return this.addEvt(m,fn);
+		}
+	});
+	*/
 	function delay(fn,dly){setTimeout(fn,dly);return this;}_.delay=delay;
 	
 	
