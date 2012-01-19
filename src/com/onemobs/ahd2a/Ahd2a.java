@@ -8,20 +8,24 @@ import android.webkit.WebView;
 import android.view.Display;
 import android.view.WindowManager;
 import android.content.Context;
-//import android.util.Log;
+import android.util.Log;
 import android.content.res.Configuration;
 
 
 public class Ahd2a extends DroidGap {
 	
-	public void fixZoom(WebView appView, float appWidth){
-		WebSettings appViewSett = appView.getSettings();
+	protected String baseUrl = "file:///android_asset/www/";
+	protected float app_width = 480;
+	protected WebView app_view;
+	
+	public void fixZoom(){
+		WebSettings appViewSett = app_view.getSettings();
 		
-		appView.setBackgroundColor(0x000000);
-        appView.setHorizontalScrollBarEnabled(false);
-        appView.setHorizontalScrollbarOverlay(false);
-        appView.setVerticalScrollBarEnabled(false);
-        appView.setVerticalScrollbarOverlay(false);
+		app_view.setBackgroundColor(0x999999);
+		app_view.setHorizontalScrollBarEnabled(false);
+		app_view.setHorizontalScrollbarOverlay(false);
+		app_view.setVerticalScrollBarEnabled(false);
+		app_view.setVerticalScrollbarOverlay(false);
         
         appViewSett.setRenderPriority( RenderPriority.HIGH );
         appViewSett.setBuiltInZoomControls(false);
@@ -32,14 +36,14 @@ public class Ahd2a extends DroidGap {
         
         Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         float width = display.getWidth();
-        double scale = Math.ceil( ( width / appWidth ) * 100 );
-        /*
-        Log.v( "app width", " = " + appWidth );
+        double scale = Math.ceil( ( width / app_width ) * 100 );
+        
+        Log.v( "app width", " = " + app_width );
         Log.v( "display width", " = " + width );
-        Log.v( "current scale()", " = " + appView.getScale() );
+        Log.v( "current scale()", " = " + app_view.getScale() );
         Log.v( "scale", " = " + scale );
-        */
-        appView.setInitialScale( (int) scale );
+        
+        app_view.setInitialScale( (int) scale );
 	}
 	
     @Override
@@ -47,20 +51,17 @@ public class Ahd2a extends DroidGap {
         super.onCreate(savedInstanceState);
         super.setIntegerProperty("splashscreen", R.drawable.splash);
         
-        String baseUrl = "file:///android_asset/www/";
-        super.loadUrl(baseUrl+"init.html",300);
-        
-        fixZoom(this.appView, 480);
+        super.loadUrl(baseUrl+"init.html",200);
+        this.app_view = this.appView;
+        fixZoom();
         
     }
     
     @Override
-    public void onConfigurationChanged(Configuration newConfig)
-    {
+    public void onConfigurationChanged(Configuration newConfig){
         super.onConfigurationChanged(newConfig);
-        //setContentView(R.layout.main);
-
-        fixZoom(this.appView, 480);
+        
+        //fixZoom();
     }
     
 }
