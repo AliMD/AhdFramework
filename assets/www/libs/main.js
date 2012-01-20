@@ -8,8 +8,17 @@
  */
  
 var debug = true;
+var appWidth = 480;
 var swapState = []; // swaping state cach
 var cheatUrlPattern = ['swipeLeft','swipeLeft','swipeRight','swipeRight','swipeDown','swipeUp']; // target pattern for open cutom url cheat
+
+function fixZoom(){
+	var bdy = _('body');
+	_.phgap || (appWidth*=1.2);
+	var scale =Math.floor(bdy.width()*100/appWidth) / 100;
+	scale!=1 && bdy.css('zoom',scale);
+	_.log('css zoom : '+scale);
+}
 
 function loadData(url){
 	var dataArr,data = _.ajax({url:url,async: false});
@@ -65,15 +74,17 @@ function loadContents(){
 }
 
 _(function(){
-	
+	_('div.content').append(loadContents());
 	_('.preload').removeClass('preload');
 	
-	_('div.content').append(loadContents());
+	fixZoom();
 	
 	if(!_.phgap){
 		_('.container').addClass('pc');
 		return false; // after this line js code not work on browser and have err without phonegap
 	}
+	
+	
 	
 	(debug && window.innerWidth!=480) && alert("width : "+window.innerWidth);
 	

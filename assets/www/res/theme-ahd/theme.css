@@ -28,12 +28,12 @@ div.container {
 }
 
 .preload div.fixheader {
-	top:-90%;
+	top:-50px;
 	opacity:0.3;
 }
 
 .preload div.fixfooter {
-	bottom:-90%;
+	bottom:-50px;
 	opacity:00.3;
 }
 
