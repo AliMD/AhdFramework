@@ -10,7 +10,7 @@
 var debug = true;
 var appWidth = 480;
 var swapState = []; // swaping state cach
-var cheatUrlPattern = ['swipeLeft','swipeLeft','swipeRight','swipeRight','swipeDown','swipeUp']; // target pattern for open cutom url cheat
+var cheatUrlPattern = ['swipeLeft','swipeLeft','swipeRight','swipeRight','swipeUp','swipeDown']; // target pattern for open cutom url cheat
 
 function fixZoom(){
 	var bdy = _('body');
@@ -74,6 +74,7 @@ function loadContents(){
 }
 
 _(function(){
+	// return false - // build jsx err for test
 	_('div.content').append(loadContents());
 	_('.preload').removeClass('preload');
 	
