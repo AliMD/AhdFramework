@@ -53,7 +53,52 @@ div.fixbtmenu{
 	background-image:url('images/menu_btm_back.jpg');
 }
 
+div.fixblackscr {
+	opacity:0.5;
+	background-color:#100A05;
+}
+
 /* ---- global section */
+
+
+/* content ---- */
+div.btn{
+	background-image:url(images/btns.png);
+	background-repeat:no-repeat;
+	height:75px;
+	margin-top:18px;
+	float:left;
+}
+
+div.btn.about{
+	background-position:-195px 0;
+	width:40px;
+	margin-left:20px;
+}
+
+div.btn.back{
+	background-position:-75px 0;
+	width:60px;
+}
+
+div.btn.play{
+	background-position:0 0;
+	width:75px;
+	margin-left:2px;
+}
+
+div.btn.next{
+	background-position:-135px 0;
+	width:60px;
+	margin-left:2px;
+}
+
+div.btnscebter{
+	width:200px;
+	margin:0 auto;
+}
+/* ---- content */
+
 
 /* content ---- */
 .preload div.content {
