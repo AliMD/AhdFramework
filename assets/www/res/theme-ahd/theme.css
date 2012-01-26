@@ -43,8 +43,14 @@ div.fixheader {
 }
 
 div.fixfooter {
+	bottom:110px;
 	height:50px;
 	background-image:url('images/footer.png');
+}
+
+div.fixbtmenu{
+	height:110px;
+	background-image:url('images/menu_btm_back.jpg');
 }
 
 /* ---- global section */

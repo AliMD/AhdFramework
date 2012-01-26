@@ -82,7 +82,8 @@ div.container.pc {
 /* fixed headers ---- */
 div.fixheader,
 div.fixfooter,
-div.fixbtmenu {
+div.fixbtmenu,
+div.fixblackscr {
 	position:fixed;
 	left:0;
 	right:0;
@@ -98,5 +99,18 @@ div.fixheader {
 
 div.fixfooter {
 	bottom:0;
+}
+
+div.fixblackscr {
+	top:0;
+	bottom:0;
+	z-index:3;
+	opacity:0.8;
+	background-color:#100A05;
+}
+
+div.fixbtmenu {
+	bottom:0;
+	z-index:4;
 }
 /* ---- fixed headers */
