@@ -66,8 +66,9 @@ div.btn{
 	background-image:url(images/btns.png);
 	background-repeat:no-repeat;
 	height:75px;
-	margin-top:18px;
+	margin-top:20px;
 	float:left;
+	-webkit-transition-property:none;
 }
 
 div.btn.about{
@@ -91,6 +92,22 @@ div.btn.next{
 	background-position:-135px 0;
 	width:60px;
 	margin-left:2px;
+}
+
+div.btn.about.touch{
+	background-position:-195px -75px;
+}
+
+div.btn.back.touch{
+	background-position:-75px -75px;
+}
+
+div.btn.play.touch{
+	background-position:0 -75px;
+}
+
+div.btn.next.touch{
+	background-position:-135px -75px;
 }
 
 div.btnscebter{

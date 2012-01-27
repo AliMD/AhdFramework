@@ -73,7 +73,7 @@
 })(_root.Zepto); '_' in _root || (_root._=_1js);})(window);
 
 (function(_){
-	['swipe', 'swipeLeft', 'swipeRight', 'swipeUp', 'swipeDown', 'doubleTap', 'tap', 'longTap'].forEach(function(m){
+	['swipe', 'swipeLeft', 'swipeRight', 'swipeUp', 'swipeDown', 'doubleTap', 'tap', 'longTap','touchstart','touchmove','touchend','touchcancel'].forEach(function(m){
     	_.fn[m] = function(callback){ return this.bind(_.phgap?m:'click', callback) }
   	});
 })(_1js);

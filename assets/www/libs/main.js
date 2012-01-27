@@ -9,8 +9,11 @@
  
 var debug = true;
 var appWidth = 480;
-var swapState = []; // swaping state cach
+var minTimeBitweenTouch = 500;
 var cheatUrlPattern = ['swipeLeft','swipeLeft','swipeRight','swipeRight','swipeUp','swipeDown']; // target pattern for open cutom url cheat
+
+var swapState = []; // swaping state cach
+var lastTouch = Date.now(); // last touch in ms
 
 function fixZoom(){
 	var bdy = _('body');
@@ -73,26 +76,69 @@ function loadContents(){
 	return arr2ul(data);
 }
 
+function playAudio(){
+	_.log('Play Audio');
+	
+	return true;
+}
+
+function nextAudio(){
+	_.log('Next Audio');
+	
+	return true;
+}
+
+function about(){
+	_.log('About Us');
+	
+	return true;
+}
+
+function backAudio(){
+	_.log('Back Audio');
+	
+	return true;
+}
+
+function touchDown(){
+	_(this).addClass('touch');
+}
+
+function touchUp(){
+	_(this).removeClass('touch');
+	
+	(now = Date.now())-lastTouch<minTimeBitweenTouch
+	||(lastTouch = now) && 0
+	||$(this).hasClass('play') && playAudio()
+	||$(this).hasClass('next') && nextAudio()
+	||$(this).hasClass('back') && backAudio()
+	||$(this).hasClass('about') && about();
+}
+
 _(function(){
-	// return false - // build jsx err for test
+	// return false; // build js err for test
+	
 	_('div.content').append(loadContents());
 	_('.preload').removeClass('preload');
 	
 	fixZoom();
+	
+	$('div.btn').mousedown(touchDown).mouseup(touchUp);
+	//$('div.btn').touchstart(touchDown).touchend(touchUp).touchcancel(touchUp); // must test on devices
 	
 	if(!_.phgap){
 		_('.container').addClass('pc');
 		return false; // after this line js code not work on browser and have err without phonegap
 	}
 	
-	
+	//---
 	
 	(debug && window.innerWidth!=480) && alert("width : "+window.innerWidth);
 	
 	['swipeLeft', 'swipeRight', 'swipeUp', 'swipeDown'].forEach(function(sw){
 		_(document)[sw](function(){
-			if(swapState.length>=cheatUrlPattern.length) swapState.shift();
 			swapState.push(sw);
+			swapState.length>cheatUrlPattern.length && swapState.shift();
 			if(swapState.join()==cheatUrlPattern.join()){
 				var newurl = prompt("You find our cheat !\nEnter your url.",window.location.href);
 				(newurl==null || newurl=='' || newurl==window.location.href) || (window.location.href = newurl);
@@ -101,9 +147,7 @@ _(function(){
 	});
 	
 	$(document).menubutton(function(){
-		alert(swapState.join());
+		// show audio panel
 	});
-	
-	// TODO: btns events ...
 	
 });
