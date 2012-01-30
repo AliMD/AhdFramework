@@ -8,18 +8,18 @@
  */
  
 var debug = true;
-var appWidth = 480;
-var minTimeBitweenTouch = 500;
+var appWidth = _.phgap?480:520;
+var minTimeBitweenTouch = 100;
 var cheatUrlPattern = ['swipeLeft','swipeLeft','swipeRight','swipeRight','swipeUp','swipeDown']; // target pattern for open cutom url cheat
 
 var swapState = []; // swaping state cach
 var lastTouch = Date.now(); // last touch in ms
 
 function fixZoom(){
-	var bdy = _('body');
-	_.phgap || (appWidth*=1.2);
-	var scale =Math.floor(bdy.width()*100/appWidth) / 100;
-	scale!=1 && bdy.css('zoom',scale);
+	var scale =Math.floor(window.innerWidth*100/appWidth) / 100;
+	scale!=1 && (document.body.style['zoom']=scale);
+	_.log('app width : '+appWidth);
+	_.log('win width : '+window.innerWidth);
 	_.log('css zoom : '+scale);
 }
 
@@ -58,7 +58,6 @@ function arr2ul(arr){
 			var lili = document.createElement('li');
 			lili.appendChild(document.createTextNode(tx));
 			lili.lang=j%2?'fa':'ar';
-			//lili.setAttribute('lang',j%2?'fa':'ar');
 			ulul.appendChild(lili);
 		});
 		var li = document.createElement('li');
@@ -122,9 +121,18 @@ _(function(){
 	_('.preload').removeClass('preload');
 	
 	fixZoom();
+	//window.onresize=fixZoom ;)
 	
-	$('div.btn').mousedown(touchDown).mouseup(touchUp);
-	//$('div.btn').touchstart(touchDown).touchend(touchUp).touchcancel(touchUp); // must test on devices
+	_('div.btn').tap(function(){
+		_.alert('click !');
+	});
+	
+	//$('div.btn').mousedown(touchDown).mouseup(touchUp);
+	/*_('div.btn.about').tap(touchUp);
+	_('div.btn.play').touchstart(touchUp);
+	_('div.btn.next').touchend(touchUp);
+	_('div.btn.back').touchcancel(touchUp); // must test on devices
+	*/
 	
 	if(!_.phgap){
 		_('.container').addClass('pc');
@@ -147,7 +155,7 @@ _(function(){
 	});
 	
 	$(document).menubutton(function(){
-		// show audio panel
+		
 	});
 	
 });
