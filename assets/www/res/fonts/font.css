@@ -7,8 +7,6 @@
  *
  */
 
-@charset "UTF-8";
-
 @font-face {
     font-family: 'ArabicTypesettingRegular';
     src: url('arabic-typesetting-webfont.woff') format('woff'),
